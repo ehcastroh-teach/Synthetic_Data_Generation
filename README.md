@@ -79,3 +79,14 @@ Run cells top to bottom in each notebook. The notebooks are independent - Notebo
 ## Credits and Acknowledgements
 
 Seed datasets represent anonymized, illustrative records modeled after a non-profit volunteer and donor context. No real personal data was used.
+---
+
+## Contact
+
+<div align="center">
+  <img src="images/thumbnails/ehcastroh_teach_banner_flower.png" alt="ehcastroh" width="90" style="border-radius: 50%;" />
+
+  <sub>ehcastroh</sub>
+
+  <a href="https://github.com/ehcastroh">GitHub</a> · <a href="https://www.linkedin.com/in/ehcastroh/">LinkedIn</a>
+</div>
