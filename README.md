@@ -71,24 +71,29 @@ This notebook approaches synthetic data from the opposite direction: instead of 
 
 ## How to Run
 
+Prerequisites: [Nix](https://nixos.org/download) with flakes enabled.
+
+This repo's Python environment is fully project-local - a `flake.nix` devShell provides Python and `uv`, and `uv` installs every dependency pinned in `pyproject.toml`/`uv.lock` into a `.venv` inside this directory. Nothing is installed system-wide.
+
 ```bash
 # Clone the repository
 git clone https://github.com/ehcastroh-teach/Synthetic_Data_Generation.git
 cd Synthetic_Data_Generation
 
-# Install dependencies into a virtual environment
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
+# Enter the dev shell - this also runs `uv sync` automatically
+# the first time, creating .venv with every pinned dependency installed
+nix develop
 
 # Open the notebooks in order (Notebook 2 is independent and can be run first)
-jupyter notebook 01_synthetic_data_generation_applied.ipynb
-jupyter notebook 02_synthetic_data_generation_sklearn.ipynb
+uv run jupyter notebook 01_synthetic_data_generation_applied.ipynb
+uv run jupyter notebook 02_synthetic_data_generation_sklearn.ipynb
 
 # Homework companions (after completing the lesson notebooks)
-jupyter notebook synthetic_data_generation_applied_homework.ipynb
-jupyter notebook synthetic_data_generation_sklearn_homework.ipynb
+uv run jupyter notebook synthetic_data_generation_applied_homework.ipynb
+uv run jupyter notebook synthetic_data_generation_sklearn_homework.ipynb
 ```
+
+If you don't use Nix, any Python 3.12+ environment with `uv` installed works the same way: run `uv sync` in place of `nix develop` and use the `uv run ...` commands above unchanged.
 
 Run cells top to bottom in each notebook. The data seed CSVs must remain at `data_seeds/intern_dropouts_seed.csv` and `data_seeds/donation_history_seed.csv` relative to the working directory. The two lesson notebooks are independent of each other.
 
